@@ -33,7 +33,7 @@ $('#waitForConnection').modal('hide')
 $('#createOrJoin').modal('show')
 
 $('#createBtn').click(function () {
-  $('#showLocalOffer').modal('show')
+  setTimeout(() => $('#showLocalOffer').modal('show'), 0)
   createLocalOffer()
 })
 
