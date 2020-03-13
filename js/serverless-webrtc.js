@@ -166,12 +166,14 @@ function createLocalOffer () {
     console.log(stream)
     console.log('adding stream to pc1')
     setupDC1()
-    pc1.createOffer(function (desc) {
-      pc1.setLocalDescription(desc, function () {}, function () {})
-      console.log('created local offer', desc)
-    },
-    function () { console.warn("Couldn't create offer") },
-    sdpConstraints)
+    pc1.createOffer(
+      function (desc) {
+        pc1.setLocalDescription(desc, function () {}, function () {})
+        console.log('created local offer', desc)
+      },
+      function () { console.warn("Couldn't create offer") },
+      sdpConstraints,
+    )
   }, function (error) {
     console.log('Error adding stream to pc1: ' + error)
   })
