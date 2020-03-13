@@ -44,17 +44,17 @@ $('#joinBtn').click(function () {
                            navigator.msGetUserMedia
   navigator.getUserMedia({video: true, audio: true}, function (stream) {
     var video = document.getElementById('localVideo')
-    video.src = window.URL.createObjectURL(stream)
+    video.srcObject = stream
     video.play()
     pc2.addStream(stream)
   }, function (error) {
     console.log('Error adding stream to pc2: ' + error)
   })
-  $('#getRemoteOffer').modal('show')
+  setTimeout(() => $('#getRemoteOffer').modal('show'), 0)
 })
 
 $('#offerSentBtn').click(function () {
-  $('#getRemoteAnswer').modal('show')
+  setTimeout(() => $('#getRemoteAnswer').modal('show'), 0)
 })
 
 $('#offerRecdBtn').click(function () {
@@ -63,18 +63,18 @@ $('#offerRecdBtn').click(function () {
   console.log('Received remote offer', offerDesc)
   writeToChatLog('Received remote offer', 'text-success')
   handleOfferFromPC1(offerDesc)
-  $('#showLocalAnswer').modal('show')
+  setTimeout(() => $('#showLocalAnswer').modal('show'), 0)
 })
 
 $('#answerSentBtn').click(function () {
-  $('#waitForConnection').modal('show')
+  setTimeout(() => $('#waitForConnection').modal('show'), 0)
 })
 
 $('#answerRecdBtn').click(function () {
   var answer = $('#remoteAnswer').val()
   var answerDesc = new RTCSessionDescription(JSON.parse(answer))
   handleAnswerFromPC2(answerDesc)
-  $('#waitForConnection').modal('show')
+  setTimeout(() => $('#waitForConnection').modal('show'), 0)
 })
 
 $('#fileBtn').change(function () {
