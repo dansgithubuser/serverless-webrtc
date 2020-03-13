@@ -160,7 +160,7 @@ function createLocalOffer () {
                            navigator.msGetUserMedia
   navigator.getUserMedia({video: true, audio: true}, function (stream) {
     var video = document.getElementById('localVideo')
-    video.src = window.URL.createObjectURL(stream)
+    video.srcObject = stream
     video.play()
     pc1.addStream(stream)
     console.log(stream)
